@@ -19,7 +19,7 @@ func _ready():
 			var cellTmp = cellResource.instance()
 			cellTmp.scale.x = scaling
 			cellTmp.scale.z = scaling
-			cellTmp.transform.origin = Vector3(x*scaling + .2,.15,y*scaling+ .2)
+			cellTmp.transform.origin = Vector3(x*scaling + .2,0,y*scaling+ .2)
 			movingNode.add_child(cellTmp)
 			cellTmp.connect("fillOne", self, "OnCellFilled")
 

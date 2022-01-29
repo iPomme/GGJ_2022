@@ -16,7 +16,8 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	$Sprite3D/Viewport/Label.text = str(level)
-
+	$Toto/Viewport/Label.text = str(level)
+	#pass
 func _on_StaticBody_input_event(camera, event, position, normal, shape_idx):
 	if (event is InputEventMouseButton and event.pressed and event.button_index == BUTTON_LEFT):
 		print_debug("cell: " + str(self.name))
