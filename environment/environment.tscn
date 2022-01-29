@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://environment/environment.gd" type="Script" id=1]
 [ext_resource path="res://board/board.tscn" type="PackedScene" id=2]
@@ -60,17 +60,7 @@ tracks/1/keys = {
 "values": [ Color( 0.462745, 0.713726, 0.8, 1 ), Color( 0.270588, 0.556863, 0.654902, 1 ), Color( 0.462745, 0.713726, 0.8, 1 ) ]
 }
 
-[sub_resource type="AnimationNodeAnimation" id=4]
-animation = "Water_chill"
-
-[sub_resource type="AnimationNodeAnimation" id=5]
-animation = "Fire_burning"
-
 [sub_resource type="AnimationNodeBlendSpace1D" id=1]
-blend_point_0/node = SubResource( 4 )
-blend_point_0/pos = -0.5
-blend_point_1/node = SubResource( 5 )
-blend_point_1/pos = 0.4
 
 [sub_resource type="AnimationNodeAnimation" id=6]
 animation = "Fire_burning"
@@ -99,13 +89,13 @@ script = ExtResource( 1 )
 
 [node name="OmniLight2" type="OmniLight" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.61552, 2.59505, -0.487982 )
-light_color = Color( 0.120884, 0.541324, 0.707931, 1 )
+light_color = Color( 1, 0.638358, 0.278431, 1 )
 light_energy = 9.068
 shadow_enabled = true
 
 [node name="OmniLight" type="OmniLight" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.77335, 2.35755, 1.72111 )
-light_color = Color( 0.336859, 0.610961, 0.704943, 1 )
+light_color = Color( 1, 0.733333, 0.278431, 1 )
 light_energy = 9.068
 shadow_enabled = true
 

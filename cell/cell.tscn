@@ -97,6 +97,7 @@ valign = 1
 
 [node name="Camera" type="Camera" parent="." index="2"]
 transform = Transform( 1, 0, 0, 0, 0.0418931, 0.999122, 0, -0.999122, 0.0418931, 0.0811772, 2.12882, 0.16876 )
+current = true
 
 [node name="StaticBody" type="StaticBody" parent="." index="3"]
 
