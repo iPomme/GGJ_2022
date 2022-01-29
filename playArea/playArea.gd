@@ -21,7 +21,7 @@ func _ready():
 			print_debug("sclaing: %s" % scaling)
 			cellTmp.scale.x = scaling
 			cellTmp.scale.z = scaling
-			cellTmp.transform.origin = Vector3((x+.5)*scaling,0,(y+.5)*scaling)
+			cellTmp.transform.origin = Vector3((x+.5)*scaling,.15,(y+.5)*scaling)
 			movingNode.add_child(cellTmp)
 
 func _input(ev):
@@ -33,6 +33,8 @@ func _input(ev):
 			 $AnimationPlayer.play_backwards("boardFlip")
 		currentPlayer = -currentPlayer
 		print_debug("current player is " + currentPlayer as String)	
+
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass
