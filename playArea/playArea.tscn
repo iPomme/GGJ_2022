@@ -33,7 +33,7 @@ root_node = NodePath("../moving")
 anims/boardFlip = ExtResource( 5 )
 
 [node name="Camera" type="Camera" parent="."]
-transform = Transform( 1, 0, 0, 0, 0.40511, 0.914268, 0, -0.914268, 0.40511, -0.01, 4.135, 2.69313 )
+transform = Transform( 1, 0, 0, 0, 0.40511, 0.914268, 0, -0.914268, 0.40511, -0.01, 4.135, 2.19 )
 
 [node name="Environment" parent="." instance=ExtResource( 4 )]
 

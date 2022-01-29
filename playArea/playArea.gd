@@ -9,7 +9,7 @@ var cells = []
 var initialStock = 10
 var availlableStock = initialStock
 var animationSpeed = 1
-var nbCells = 8
+var nbCells = 6
 var cellCoef = 5
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -57,10 +57,12 @@ func updateYingYing():
 		yingYang = 1 - float(posCell) / totalCell
 	print_debug("posCell=%s, negCell=%s, totalCell=%s, yingyang=%s" % [posCell, negCell, totalCell, yingYang])
 	var cellsNbToWin = cells.size() / 2
-	if(posCell > cellsNbToWin):
-		print_debug("Player 2 WINNER!!!!!!!!!")
-	elif(negCell > cellsNbToWin):
-		print_debug("Player 1 WINNER!!!!!!!!!")
+	if(currentPlayer < 0):
+		if(posCell > cellsNbToWin):
+			print_debug("Player 2 WINNER!!!!!!!!!")
+		elif(negCell > cellsNbToWin):
+			print_debug("Player 1 WINNER!!!!!!!!!")
+
 func switchAmbiance():
 	$Environment.switch_side()
 	pass

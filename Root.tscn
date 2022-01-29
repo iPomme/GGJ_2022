@@ -5,6 +5,6 @@
 [node name="Root" type="Spatial"]
 
 [node name="Camera" type="Camera" parent="."]
-transform = Transform( 0.986016, -0.157046, 0.0557517, 0.0193332, 0.440087, 0.897747, -0.165523, -0.884116, 0.436969, 0.579211, 4.91391, 3.27247 )
+transform = Transform( 0.986016, -0.157046, 0.0557517, -0.0336147, 0.140241, 0.989547, -0.163223, -0.977583, 0.133001, -0.0772132, 5.70454, 0.778929 )
 
 [node name="PlayArea" parent="." instance=ExtResource( 1 )]

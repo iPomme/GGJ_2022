@@ -27,5 +27,6 @@ func _input(ev):
 func makeVaporExplosion(sizeOfExplosion = 10):
 	$Particles.emitting = true
 	$Particles.amount = sizeOfExplosion
+	$Particles.lifetime = .6
 	print("MAKE EXPLOSION")
 	

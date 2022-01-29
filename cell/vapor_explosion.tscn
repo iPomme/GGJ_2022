@@ -56,6 +56,7 @@ draw_pass_1 = SubResource( 14 )
 
 [node name="OmniLight" type="OmniLight" parent="Particles"]
 transform = Transform( 0.999998, -0.00170092, 0.000827863, 0.00170192, 0.999998, -0.00122022, -0.000825809, 0.00122161, 0.999999, 1.25943, 1.37384, 0.686739 )
+visible = false
 light_color = Color( 0.972549, 0.792157, 0.247059, 1 )
 light_energy = 2.472
 omni_range = 6.892
