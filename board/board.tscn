@@ -1,14 +1,7 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://board/board_controller.gd" type="Script" id=1]
 [ext_resource path="res://board/3D/board.fbx" type="PackedScene" id=2]
-[ext_resource path="res://board/anims/Board_flip.tres" type="Animation" id=3]
 
 [node name="board" instance=ExtResource( 2 )]
 script = ExtResource( 1 )
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="1"]
-anims/Board_flip = ExtResource( 3 )
-
-[node name="Camera" type="Camera" parent="." index="2"]
-transform = Transform( 1, 0, 0, 0, 0.908537, 0.417804, 0, -0.417804, 0.908537, 1.40415, 2.49888, 5.32114 )
