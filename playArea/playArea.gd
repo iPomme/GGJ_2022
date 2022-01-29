@@ -5,6 +5,9 @@ signal playerChanged(newPlayer)
 var currentPlayer = -1
 var yingYang = .5
 
+var posCell = 0
+var negCell = 0
+
 var cells = []
 var initialStock = 10
 var availlableStock = initialStock
@@ -39,17 +42,19 @@ func swithSide():
 	switchAmbiance()
 	currentPlayer = -currentPlayer
 	availlableStock = initialStock
+	posCell = 0
+	negCell = 0
 	updateYingYing()
 	
-	
-func updateYingYing():
-	var posCell = 0
-	var negCell = 0
+func updateNbCells():
 	for c in cells:
 		if(c.level > 0):
 			posCell += 1
 		elif(c.level < 0):
 			negCell += 1
+			
+func updateYingYing():
+	updateNbCells()
 	var totalCell = posCell + negCell
 	if(negCell != 0):
 		yingYang = float(negCell) / totalCell
@@ -76,6 +81,7 @@ func playAnimation():
 
 func OnCellFilled():
 	availlableStock -= 1
+	updateNbCells()
 	# print_debug("Current Stock: %s" % availlableStock)
 	if availlableStock==0:
 		swithSide()
@@ -85,3 +91,11 @@ func _process(delta):
 	stockIndicator.value = availlableStock
 	var gameIndicator = $hudTop/Progress
 	gameIndicator.value = yingYang
+	if(currentPlayer > 0):
+		if(!$ambianceFeux.playing):
+			if(posCell > 0):
+				$ambianceFeux.play()
+			else:
+				$ambianceFeux.stop()
+	else:
+		$ambianceFeux.stop()

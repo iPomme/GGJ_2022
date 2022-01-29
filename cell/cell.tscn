@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://cell/3D/cell.fbx" type="PackedScene" id=1]
 [ext_resource path="res://cell/cell.gd" type="Script" id=2]
@@ -6,6 +6,8 @@
 [ext_resource path="res://cell/3D/Little Comet Demo Version.otf" type="DynamicFontData" id=4]
 [ext_resource path="res://cell/materials/particles_fire.tres" type="Material" id=5]
 [ext_resource path="res://cell/vapor_explosion.tscn" type="PackedScene" id=6]
+[ext_resource path="res://audio/CuissonShort.mp3" type="AudioStream" id=7]
+[ext_resource path="res://audio/zisch1.mp3" type="AudioStream" id=8]
 
 [sub_resource type="ViewportTexture" id=2]
 viewport_path = NodePath("Sprite3D/Viewport")
@@ -143,5 +145,11 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.249532, 0 )
 
 [node name="Vapor_ExplosionFire" parent="." index="7" instance=ExtResource( 6 )]
 transform = Transform( 1, 0, 0, 0, -1, 8.74228e-08, 0, -8.74228e-08, -1, 0, -0.423857, 0 )
+
+[node name="CuissonShort" type="AudioStreamPlayer" parent="." index="8"]
+stream = ExtResource( 7 )
+
+[node name="Zisch" type="AudioStreamPlayer" parent="." index="9"]
+stream = ExtResource( 8 )
 
 [connection signal="input_event" from="StaticBody" to="." method="_on_StaticBody_input_event"]

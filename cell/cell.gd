@@ -9,7 +9,7 @@ var parent
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	updateParticule()
+	updateParticule(false)
 	pass # Replace with function body.
 
 func init(instance):
@@ -23,10 +23,10 @@ func _on_StaticBody_input_event(camera, event, position, normal, shape_idx):
 	if (event is InputEventMouseButton and event.pressed and event.button_index == BUTTON_LEFT):
 		print_debug("cell: " + str(self.name))
 		level += currentside
-		updateParticule()
+		updateParticule(true)
 		emit_signal("fillOne")
 	
-func updateParticule():
+func updateParticule(withExplosion):
 	if(currentside < 0):
 		$ParticlesFire.emitting = false
 		if(level<0):
@@ -35,7 +35,9 @@ func updateParticule():
 		else:
 			$ParticlesWater.emitting = false
 			if(oldLevel > 0):
-				$Vapor_ExplosionWater.makeVaporExplosion(100)
+				if(withExplosion):
+					$Vapor_ExplosionWater.makeVaporExplosion(100)
+					$Zisch.play()
 	elif(currentside > 0):
 		if(level>0):
 			$ParticlesFire.emitting = true
@@ -43,13 +45,15 @@ func updateParticule():
 		else:
 			$ParticlesFire.emitting = false
 			if(oldLevel < 0):
-				$Vapor_ExplosionFire.makeVaporExplosion(100)
+				if(withExplosion):
+					$Vapor_ExplosionFire.makeVaporExplosion(100)
+					$CuissonShort.play()
 		$ParticlesWater.emitting = false
 	
 func OnPlayerChanged(newSide):
 	currentside = newSide
-	updateParticule()
 	if(oldLevel != level):
 		var delta = oldLevel + level
 		oldLevel = level
 		print_debug("PlayerChanged: current side %s and delta is %s" % [currentside, delta])
+	updateParticule(false)
