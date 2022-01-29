@@ -62,7 +62,7 @@ func updateYingYing():
 	elif(negCell > cellsNbToWin):
 		print_debug("Player 1 WINNER!!!!!!!!!")
 func switchAmbiance():
-
+	$Environment.switch_side()
 	pass
 	
 func playAnimation():
@@ -74,7 +74,7 @@ func playAnimation():
 
 func OnCellFilled():
 	availlableStock -= 1
-	print_debug("Current Stock: %s" % availlableStock)
+	# print_debug("Current Stock: %s" % availlableStock)
 	if availlableStock==0:
 		swithSide()
 # Called every frame. 'delta' is the elapsed time since the previous frame.

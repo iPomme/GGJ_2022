@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/CuissonLong.mp3-d7083a9ee1f5b5f57b47827d0344d2f9.mp3str"
+
+[deps]
+
+source_file="res://audio/CuissonLong.mp3"
+dest_files=[ "res://.import/CuissonLong.mp3-d7083a9ee1f5b5f57b47827d0344d2f9.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

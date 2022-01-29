@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/CuissonShort.mp3-3af9a22f69d9aea6d6d4679bbeb8dfa4.mp3str"
+
+[deps]
+
+source_file="res://audio/CuissonShort.mp3"
+dest_files=[ "res://.import/CuissonShort.mp3-3af9a22f69d9aea6d6d4679bbeb8dfa4.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0
