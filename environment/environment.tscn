@@ -111,6 +111,7 @@ anims/Fire_burning = SubResource( 2 )
 anims/Water_chill = SubResource( 3 )
 
 [node name="board" parent="." instance=ExtResource( 2 )]
+visible = false
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
 tree_root = SubResource( 1 )
