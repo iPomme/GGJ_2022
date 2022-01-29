@@ -5,18 +5,18 @@ signal playerChanged(newPlayer)
 var currentPlayer = -1
 var initialStock = 10
 var availlableStock = initialStock
-var animationSpeed = 10
+var animationSpeed = 1
 var nbCells = 8
 var cellCoef = 5
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	#self.connect("fillOne", self, "OnCellFilled")
 	var cellResource = preload("res://cell/cell.tscn")
 	var movingNode = $moving
 	var scaling = 1/float(nbCells)*cellCoef
 	for x in range(-nbCells/2, nbCells/2):
 		for y in range(-nbCells/2, nbCells/2):
 			var cellTmp = cellResource.instance()
+			cellTmp.init(self)
 			cellTmp.scale.x = scaling
 			cellTmp.scale.z = scaling
 			cellTmp.transform.origin = Vector3(x*scaling + .2,0,y*scaling+ .2)
@@ -53,5 +53,6 @@ func OnCellFilled():
 		availlableStock = initialStock
 		swithSide()
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+func _process(delta):
+	var stockIndicator = $hud_Stock/ProgressBar
+	stockIndicator.value = availlableStock
