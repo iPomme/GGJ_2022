@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/ambienceWater.mp3-7a13eb4dac6931ef5cd83ccefd86c671.mp3str"
+
+[deps]
+
+source_file="res://audio/ambienceWater.mp3"
+dest_files=[ "res://.import/ambienceWater.mp3-7a13eb4dac6931ef5cd83ccefd86c671.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

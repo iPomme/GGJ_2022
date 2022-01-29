@@ -92,6 +92,7 @@ func _process(delta):
 	var gameIndicator = $hudTop/Progress
 	gameIndicator.value = yingYang
 	if(currentPlayer > 0):
+		$ambianceWater.stop()
 		if(!$ambianceFeux.playing):
 			if(posCell > 0):
 				$ambianceFeux.play()
@@ -99,3 +100,8 @@ func _process(delta):
 				$ambianceFeux.stop()
 	else:
 		$ambianceFeux.stop()
+		if(!$ambianceWater.playing):
+			if(negCell > 0):
+				$ambianceWater.play()
+			else:
+				$ambianceWater.stop()
