@@ -5,7 +5,7 @@ signal playerChanged(newPlayer)
 var currentPlayer = -1
 var initialStock = 10
 var availlableStock = initialStock
-var animationSpeed = 10
+var animationSpeed = 1
 var nbCells = 8
 var cellCoef = 5
 # Called when the node enters the scene tree for the first time.
@@ -37,7 +37,7 @@ func swithSide():
 	
 	
 func switchAmbiance():
-
+	$Environment.switch_side()
 	pass
 	
 func playAnimation():
@@ -49,7 +49,7 @@ func playAnimation():
 
 func OnCellFilled():
 	availlableStock -= 1
-	print_debug("Current Stock: %s" % availlableStock)
+	# print_debug("Current Stock: %s" % availlableStock)
 	if availlableStock==0:
 		availlableStock = initialStock
 		swithSide()

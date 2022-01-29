@@ -20,11 +20,11 @@ func _process(delta):
 	#pass
 func _on_StaticBody_input_event(camera, event, position, normal, shape_idx):
 	if (event is InputEventMouseButton and event.pressed and event.button_index == BUTTON_LEFT):
-		print_debug("cell: " + str(self.name))
+		# print_debug("cell: " + str(self.name))
 		level += currentside
 		emit_signal("fillOne")
 	
 
 func OnPlayerChanged(newSide):
 	currentside = newSide
-	print_debug("PlayerChanged: current side %s", currentside)
+	# print_debug("PlayerChanged: current side %s", currentside)

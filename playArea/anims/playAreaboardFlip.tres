@@ -45,3 +45,15 @@ tracks/3/keys = {
 "points": PoolRealArray( 0, -0.1, 9, 0.1, -9, 44, -0.3, -42, 0.3, 42, 188, -0.149574, -17, 0.149574, 17, 181, -0.0504259, -9, 0.0504259, 9 ),
 "times": PoolRealArray( 0, 0.6, 1.7, 2 )
 }
+tracks/4/type = "value"
+tracks/4/path = NodePath("../Environment:a")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 1, -1 ]
+}

@@ -2,7 +2,7 @@ extends Spatial
 
 
 # Declare member variables here. Examples:
-# var a = 2
+export var a = -1
 # var b = "text"
 
 
@@ -12,5 +12,11 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+func _process(delta):
+	pass
+	#$Animationtree["parameters/blend_position"] = 1
+
+func switch_side():
+	print("switched sides in ENVIRONEMNT")
+	a -= a
+	$AnimationTree["parameters/blend_position"] = -$AnimationTree["parameters/blend_position"]

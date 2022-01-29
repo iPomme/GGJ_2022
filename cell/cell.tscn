@@ -1,9 +1,10 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://cell/3D/cell.fbx" type="PackedScene" id=1]
 [ext_resource path="res://cell/cell.gd" type="Script" id=2]
 [ext_resource path="res://cell/Viewport.gd" type="Script" id=3]
 [ext_resource path="res://cell/3D/Little Comet Demo Version.otf" type="DynamicFontData" id=4]
+[ext_resource path="res://cell/materials/particles_fire.tres" type="Material" id=5]
 
 [sub_resource type="ViewportTexture" id=2]
 viewport_path = NodePath("Sprite3D/Viewport")
@@ -22,6 +23,30 @@ viewport_path = NodePath("Toto/Viewport")
 
 [sub_resource type="BoxShape" id=1]
 extents = Vector3( 0.213182, 0.11643, 0.2001 )
+
+[sub_resource type="SpatialMaterial" id=7]
+vertex_color_use_as_albedo = true
+albedo_color = Color( 0.286275, 0.47451, 0.576471, 1 )
+metallic = 0.46
+metallic_specular = 0.96
+roughness = 0.0
+
+[sub_resource type="SphereMesh" id=8]
+material = SubResource( 7 )
+radius = 0.3
+height = 0.5
+radial_segments = 12
+rings = 6
+
+[sub_resource type="Curve" id=9]
+_data = [ Vector2( 0.0357782, 0.00336742 ), 0.0, 0.0, 0, 0, Vector2( 0.234347, 0.844584 ), 1.85148, 1.85148, 0, 0, Vector2( 0.729875, 0.461701 ), -2.90541, -2.90541, 0, 0, Vector2( 1, 0.0213854 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="SphereMesh" id=10]
+material = ExtResource( 5 )
+radius = 0.4
+height = 0.4
+radial_segments = 8
+rings = 8
 
 [node name="cell" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
@@ -78,5 +103,38 @@ transform = Transform( 1, 0, 0, 0, 0.0418931, 0.999122, 0, -0.999122, 0.0418931,
 [node name="CollisionShape" type="CollisionShape" parent="StaticBody" index="0"]
 transform = Transform( 2.45711, 0, 0, 0, 1.9396, 0, 0, 0, 2.44778, 0, -0.172595, 0.0544029 )
 shape = SubResource( 1 )
+
+[node name="ParticlesWater" type="CPUParticles" parent="." index="5"]
+transform = Transform( 1, 0, 0, 0, 0.83133, 0, 0, 0, 1, 0, -0.0686734, 0 )
+cast_shadow = 0
+amount = 20
+lifetime = 5.0
+mesh = SubResource( 8 )
+emission_shape = 2
+emission_box_extents = Vector3( 0.5, 0.4, 0.5 )
+gravity = Vector3( 0, 0, 0 )
+initial_velocity_random = 0.15
+radial_accel = -0.03
+radial_accel_random = 0.24
+scale_amount = 0.6
+scale_amount_curve = SubResource( 9 )
+hue_variation = -0.29
+hue_variation_random = 0.46
+
+[node name="ParticlesFire" type="CPUParticles" parent="." index="6"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0171862, -0.018217, 0.0135936 )
+cast_shadow = 0
+amount = 200
+mesh = SubResource( 10 )
+emission_shape = 2
+emission_box_extents = Vector3( 0.3, 0.3, 0.3 )
+gravity = Vector3( 0, 0, 0 )
+initial_velocity_random = 0.15
+radial_accel = 0.5
+radial_accel_random = 0.24
+scale_amount = 0.4
+scale_amount_curve = SubResource( 9 )
+hue_variation = 0.58
+hue_variation_random = 0.2
 
 [connection signal="input_event" from="StaticBody" to="." method="_on_StaticBody_input_event"]
