@@ -78,8 +78,10 @@ animation = "Fire_burning"
 animation = "Water_chill"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=8]
+xfade_time = 0.5
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=9]
+xfade_time = 0.5
 
 [sub_resource type="AnimationNodeStateMachine" id=10]
 states/Fire_burning/node = SubResource( 6 )
@@ -96,13 +98,13 @@ script = ExtResource( 1 )
 
 [node name="OmniLight2" type="OmniLight" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.61552, 2.59505, -0.487982 )
-light_color = Color( 0.375904, 0.581396, 0.627285, 1 )
+light_color = Color( 1, 0.615167, 0.278431, 1 )
 light_energy = 9.068
 shadow_enabled = true
 
 [node name="OmniLight" type="OmniLight" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.77335, 2.35755, 1.72111 )
-light_color = Color( 0.561532, 0.717331, 0.704097, 1 )
+light_color = Color( 1, 0.733333, 0.278431, 1 )
 light_energy = 9.068
 shadow_enabled = true
 
@@ -111,15 +113,17 @@ anims/Fire_burning = SubResource( 2 )
 anims/Water_chill = SubResource( 3 )
 
 [node name="board" parent="." instance=ExtResource( 2 )]
-visible = false
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
 tree_root = SubResource( 1 )
 anim_player = NodePath("../AnimationPlayer")
-active = true
 parameters/blend_position = -0.334513
 
 [node name="AnimationTree2" type="AnimationTree" parent="."]
 tree_root = SubResource( 10 )
 anim_player = NodePath("../AnimationPlayer")
+active = true
 parameters/playback = SubResource( 11 )
+
+[node name="Camera" type="Camera" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.845458, 0.534043, 0, -0.534043, 0.845458, 0.474876, 3.2755, 4.96576 )

@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/zisch1.mp3-9ac5bad2d61b1e9236c8440c324f5c81.mp3str"
+
+[deps]
+
+source_file="res://audio/zisch1.mp3"
+dest_files=[ "res://.import/zisch1.mp3-9ac5bad2d61b1e9236c8440c324f5c81.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

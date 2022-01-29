@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/feux1.mp3-553d6e665435c868e052804868734185.mp3str"
+
+[deps]
+
+source_file="res://audio/feux1.mp3"
+dest_files=[ "res://.import/feux1.mp3-553d6e665435c868e052804868734185.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0
