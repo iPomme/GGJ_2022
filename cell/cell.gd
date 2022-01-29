@@ -2,7 +2,7 @@ extends Spatial
 
 signal fillOne
 
-var level = 0
+export var level = 0
 var oldLevel = 0
 var currentside = -1
 var parent
