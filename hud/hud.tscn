@@ -1,0 +1,25 @@
+[gd_scene format=2]
+
+[node name="Control" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LabelPlayer1" type="RichTextLabel" parent="."]
+margin_right = 394.0
+margin_bottom = 40.0
+text = "Player 1"
+fit_content_height = true
+
+[node name="LabelPlayer2" type="RichTextLabel" parent="."]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -58.0
+margin_right = -6.0
+margin_bottom = 40.0
+text = "Player2"
+__meta__ = {
+"_edit_use_anchors_": false
+}
