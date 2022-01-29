@@ -2,7 +2,7 @@ extends Spatial
 
 
 # Declare member variables here. Examples:
-export var a = -1
+export var a = -2
 # var b = "text"
 
 
@@ -19,16 +19,18 @@ func _process(delta):
 
 func _input(ev):
 	if Input.is_key_pressed(KEY_K):
-		var playback = $AnimationTree2.get("parameters/playback")
-		playback.travel("Water_chill")
-		print("KKKK")
-	if Input.is_key_pressed(KEY_L):
-		var playback = $AnimationTree2.get("parameters/playback")
-		playback.travel("Fire_burning")
-		$AnimationTree2.set("")
-		print("LLLL")
+		switch_side()
 
 func switch_side():
-	print("switched sides in ENVIRONEMNT")
-	a -= a
-	$AnimationTree["parameters/blend_position"] = -$AnimationTree["parameters/blend_position"]
+	print("switched sides in ENVIRONEMNT" + str(a))
+
+	var playback = $AnimationStateMachine.get("parameters/playback")
+	if (a == 0):
+		print (" WATER !!!! ")
+		playback.travel("Water_chill")
+		a = 1
+	else:
+		print (" FIRE !!!! ")
+		playback.travel("Fire_burning")
+		a = 0
+
