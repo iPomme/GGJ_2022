@@ -14,7 +14,7 @@ var cells = []
 var initialStock = 10
 var availlableStock = initialStock
 var animationSpeed = 1
-var nbCells = 6
+var nbCells = 4
 var cellCoef = 5
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -118,5 +118,5 @@ func _on_ButtonQuit_pressed():
 
 func onGameOver(win) -> void:
   notGameOver = false
-  get_tree().paused = true
+  #get_tree().paused = true
   Events.emit_hud_gameover(win)
