@@ -22,15 +22,11 @@ func _input(ev):
 		switch_side()
 
 func switch_side():
-	print("switched sides in ENVIRONEMNT" + str(a))
-
 	var playback = $AnimationStateMachine.get("parameters/playback")
 	if (a == 0):
-		print (" WATER !!!! ")
 		playback.travel("Water_chill")
 		a = 1
 	else:
-		print (" FIRE !!!! ")
 		playback.travel("Fire_burning")
 		a = 0
 
