@@ -1,7 +1,7 @@
 extends Node
 
 
-var rowSize = 8
+var rowSize = 6
 
 
 func playBackroundMusic():

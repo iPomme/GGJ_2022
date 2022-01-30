@@ -14,7 +14,7 @@ var cells = []
 var initialStock = 10
 var availlableStock = initialStock
 var animationSpeed = 1
-var nbCells = 4
+var nbCells = Universe.rowSize
 var cellCoef = 5
 # Called when the node enters the scene tree for the first time.
 func _ready():
