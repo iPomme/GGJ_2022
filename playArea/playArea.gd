@@ -37,7 +37,7 @@ func _input(ev):
 
 
 func swithSide():
-	emit_signal("playerChanged", -currentPlayer)
+	#emit_signal("playerChanged", -currentPlayer)
 	playAnimation()
 	switchAmbiance()
 	currentPlayer = -currentPlayer
@@ -45,6 +45,9 @@ func swithSide():
 	posCell = 0
 	negCell = 0
 	updateYingYing()
+	
+func emit_playerChanged():
+	emit_signal("playerChanged", currentPlayer)
 	
 func updateNbCells():
 	for c in cells:

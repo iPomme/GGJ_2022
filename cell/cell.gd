@@ -23,7 +23,7 @@ func _on_StaticBody_input_event(camera, event, position, normal, shape_idx):
 	if (event is InputEventMouseButton and event.pressed and event.button_index == BUTTON_LEFT):
 		print_debug("cell: " + str(self.name))
 		level += currentside
-		updateParticule(true)
+		addParticule()
 		emit_signal("fillOne")
 	
 func updateParticule(withExplosion):
@@ -49,11 +49,19 @@ func updateParticule(withExplosion):
 					$Vapor_ExplosionFire.makeVaporExplosion(100)
 					$CuissonShort.play()
 		$ParticlesWater.emitting = false
-	
+
+func addParticule():
+	if(currentside < 0):
+		$ParticlesFire.emitting = false
+		$ParticlesWater.emitting = true
+	elif(currentside > 0):
+		$ParticlesFire.emitting = true
+		$ParticlesWater.emitting = false
+
 func OnPlayerChanged(newSide):
 	currentside = newSide
 	if(oldLevel != level):
 		var delta = oldLevel + level
 		oldLevel = level
 		print_debug("PlayerChanged: current side %s and delta is %s" % [currentside, delta])
-	updateParticule(false)
+	updateParticule(true)
