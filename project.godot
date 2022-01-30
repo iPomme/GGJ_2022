@@ -11,8 +11,13 @@ config_version=4
 [application]
 
 config/name="XOR"
-run/main_scene="res://Root.tscn"
+run/main_scene="res://welcome/welcome.tscn"
 config/icon="res://icon.png"
+
+[autoload]
+
+Universe="*res://universe/universe.tscn"
+Events="*res://events/events.tscn"
 
 [physics]
 

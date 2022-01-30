@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://hud/hud.tscn" type="PackedScene" id=1]
 [ext_resource path="res://board/board.tscn" type="PackedScene" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://cell/3D/Little Comet Demo Version.otf" type="DynamicFontData" id=6]
 [ext_resource path="res://audio/feux1.mp3" type="AudioStream" id=7]
 [ext_resource path="res://audio/ambienceWater.mp3" type="AudioStream" id=8]
+[ext_resource path="res://gameOver/gameOver.tscn" type="PackedScene" id=9]
 
 [sub_resource type="DynamicFont" id=4]
 size = 20
@@ -20,6 +21,11 @@ bg_color = Color( 0.0627451, 0.415686, 0.168627, 1 )
 
 [sub_resource type="StyleBoxFlat" id=6]
 bg_color = Color( 0.890196, 0.27451, 0.0392157, 1 )
+
+[sub_resource type="DynamicFont" id=7]
+size = 34
+extra_spacing_top = 9
+font_data = ExtResource( 6 )
 
 [node name="PlayArea" type="Spatial"]
 script = ExtResource( 3 )
@@ -66,3 +72,28 @@ stream = ExtResource( 7 )
 
 [node name="ambianceWater" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 8 )
+
+[node name="hudQuit" type="Control" parent="."]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -1024.0
+margin_top = -600.0
+margin_right = -984.0
+margin_bottom = -560.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button" type="Button" parent="hudQuit"]
+margin_left = 896.0
+margin_top = 530.0
+margin_right = 1003.0
+margin_bottom = 583.0
+custom_fonts/font = SubResource( 7 )
+text = "QUIT"
+
+[node name="hudGameOver" parent="." instance=ExtResource( 9 )]
+
+[connection signal="pressed" from="hudQuit/Button" to="." method="_on_ButtonQuit_pressed"]

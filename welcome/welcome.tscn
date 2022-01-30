@@ -1,0 +1,63 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://welcome/welcome.gd" type="Script" id=1]
+[ext_resource path="res://cell/3D/Little Comet Demo Version.otf" type="DynamicFontData" id=2]
+
+[sub_resource type="DynamicFont" id=1]
+size = 34
+font_data = ExtResource( 2 )
+
+[node name="Control" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button" type="Button" parent="."]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -213.0
+margin_top = -178.0
+margin_right = -56.0
+margin_bottom = -120.0
+custom_fonts/font = SubResource( 1 )
+text = "NEW GAME"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ButtonCredits" type="Button" parent="."]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_left = 85.0
+margin_top = -179.0
+margin_right = 222.0
+margin_bottom = -115.0
+custom_fonts/font = SubResource( 1 )
+text = "CREDITS"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ButtonQuit" type="Button" parent="."]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -210.0
+margin_top = -105.0
+margin_right = -56.0
+margin_bottom = -51.0
+custom_fonts/font = SubResource( 1 )
+text = "QUIT GAME"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="pressed" from="Button" to="." method="_on_Next_Scene"]
+[connection signal="pressed" from="ButtonCredits" to="." method="_on_ButtonCredits_pressed"]
+[connection signal="pressed" from="ButtonQuit" to="." method="_on_quit_game"]

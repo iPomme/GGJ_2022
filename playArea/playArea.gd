@@ -8,6 +8,8 @@ var yingYang = .5
 var posCell = 0
 var negCell = 0
 
+var notGameOver = true
+
 var cells = []
 var initialStock = 10
 var availlableStock = initialStock
@@ -67,9 +69,9 @@ func updateYingYing():
 	var cellsNbToWin = cells.size() / 2
 	if(currentPlayer < 0):
 		if(posCell > cellsNbToWin):
-			print_debug("Player 2 WINNER!!!!!!!!!")
+			onGameOver("Player 2")
 		elif(negCell > cellsNbToWin):
-			print_debug("Player 1 WINNER!!!!!!!!!")
+			onGameOver("Player 1")
 
 func switchAmbiance():
 	$Environment.switch_side()
@@ -108,3 +110,13 @@ func _process(delta):
 				$ambianceWater.play()
 			else:
 				$ambianceWater.stop()
+
+
+func _on_ButtonQuit_pressed():
+	get_tree().change_scene("res://welcome/welcome.tscn")
+
+
+func onGameOver(win) -> void:
+  notGameOver = false
+  get_tree().paused = true
+  Events.emit_hud_gameover(win)
