@@ -12,7 +12,10 @@ config_version=4
 
 config/name="XOR"
 run/main_scene="res://welcome/welcome.tscn"
-config/icon="res://icon.png"
+boot_splash/image="res://images/yinyang.png"
+config/icon="res://images/yinyang.png"
+config/macos_native_icon="res://images/yinyang.icns"
+config/windows_native_icon="res://images/yinyang.ico"
 
 [autoload]
 
@@ -22,7 +25,6 @@ Events="*res://events/events.tscn"
 [display]
 
 window/size/resizable=false
-window/size/borderless=true
 
 [physics]
 

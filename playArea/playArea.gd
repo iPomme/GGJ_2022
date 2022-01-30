@@ -39,25 +39,35 @@ func _input(ev):
 
 
 func swithSide():
-	#emit_signal("playerChanged", -currentPlayer)
 	playAnimation()
 	switchAmbiance()
 	currentPlayer = -currentPlayer
 	availlableStock = initialStock
 	posCell = 0
 	negCell = 0
-	updateYingYing()
+	if(currentPlayer < 0):
+		updateYingYing()
 	
 func emit_playerChanged():
 	emit_signal("playerChanged", currentPlayer)
 	
 func updateNbCells():
+	posCell = 0
+	negCell = 0
 	for c in cells:
 		if(c.level > 0):
 			posCell += 1
 		elif(c.level < 0):
 			negCell += 1
-			
+
+func updatePlayerHud():
+	updateNbCells()
+	var totalCell = negCell + posCell
+	$hudPlayer1/LabelNbCell.text = str(negCell)
+	$hudPlayer1/LabelTotalCels.text = str(totalCell)
+	$hudPlayer2/LabelNbCell.text = str(posCell)
+	$hudPlayer2/LabelTotalCels.text = str(totalCell)
+	
 func updateYingYing():
 	updateNbCells()
 	var totalCell = posCell + negCell
@@ -65,6 +75,7 @@ func updateYingYing():
 		yingYang = float(negCell) / totalCell
 	elif(posCell != 0):
 		yingYang = 1 - float(posCell) / totalCell
+	updatePlayerHud()
 	print_debug("posCell=%s, negCell=%s, totalCell=%s, yingyang=%s" % [posCell, negCell, totalCell, yingYang])
 	var cellsNbToWin = cells.size() / 2
 	if(currentPlayer < 0):
@@ -97,6 +108,9 @@ func _process(delta):
 	var gameIndicator = $hudTop/Progress
 	gameIndicator.value = yingYang
 	if(currentPlayer > 0):
+		if(notGameOver):		
+			$hudPlayer1.visible = false
+			$hudPlayer2.visible = true
 		$ambianceWater.stop()
 		if(!$ambianceFeux.playing):
 			if(posCell > 0):
@@ -104,6 +118,9 @@ func _process(delta):
 			else:
 				$ambianceFeux.stop()
 	else:
+		if(notGameOver):
+			$hudPlayer1.visible = true
+			$hudPlayer2.visible = false
 		$ambianceFeux.stop()
 		if(!$ambianceWater.playing):
 			if(negCell > 0):
@@ -111,12 +128,12 @@ func _process(delta):
 			else:
 				$ambianceWater.stop()
 
-
 func _on_ButtonQuit_pressed():
 	get_tree().change_scene("res://welcome/welcome.tscn")
 
 
 func onGameOver(win) -> void:
-  notGameOver = false
-  #get_tree().paused = true
-  Events.emit_hud_gameover(win)
+	$hudPlayer1.visible = true
+	$hudPlayer2.visible = true
+	notGameOver = false
+	Events.emit_hud_gameover(win)

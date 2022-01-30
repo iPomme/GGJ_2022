@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://hud/hud.tscn" type="PackedScene" id=1]
 [ext_resource path="res://board/board.tscn" type="PackedScene" id=2]
@@ -22,9 +22,17 @@ bg_color = Color( 0.0627451, 0.415686, 0.168627, 1 )
 [sub_resource type="StyleBoxFlat" id=6]
 bg_color = Color( 0.890196, 0.27451, 0.0392157, 1 )
 
+[sub_resource type="DynamicFont" id=8]
+size = 34
+font_data = ExtResource( 6 )
+
 [sub_resource type="DynamicFont" id=7]
 size = 34
 extra_spacing_top = 9
+font_data = ExtResource( 6 )
+
+[sub_resource type="DynamicFont" id=9]
+size = 24
 font_data = ExtResource( 6 )
 
 [node name="PlayArea" type="Spatial"]
@@ -33,6 +41,10 @@ script = ExtResource( 3 )
 [node name="hudGameOver" parent="." instance=ExtResource( 9 )]
 
 [node name="hudTop" parent="." instance=ExtResource( 1 )]
+margin_left = 2.0
+margin_top = -4.0
+margin_right = 2.0
+margin_bottom = -547.0
 
 [node name="moving" type="Spatial" parent="."]
 
@@ -43,22 +55,26 @@ root_node = NodePath("../moving")
 anims/boardFlip = ExtResource( 5 )
 
 [node name="Camera" type="Camera" parent="."]
-transform = Transform( 1, 0, 0, 0, 0.40511, 0.914268, 0, -0.914268, 0.40511, -0.01, 4.135, 2.19 )
+transform = Transform( 1, 0, 0, 0, 0.404088, 0.91472, 0, -0.91472, 0.404088, -0.01, 5.16839, 3.00594 )
 
 [node name="Environment" parent="." instance=ExtResource( 4 )]
 
 [node name="hud_Stock" type="Control" parent="."]
-margin_right = 172.0
-margin_bottom = 40.0
+anchor_right = 1.035
+anchor_bottom = 1.0
+margin_left = 274.0
+margin_top = 471.0
+margin_right = -371.84
+margin_bottom = -62.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="ProgressBar" type="ProgressBar" parent="hud_Stock"]
-margin_left = 405.0
-margin_top = 524.0
-margin_right = 666.0
-margin_bottom = 551.0
+margin_left = 137.0
+margin_top = 18.0
+margin_right = 398.0
+margin_bottom = 45.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_fonts/font = SubResource( 4 )
 custom_styles/fg = SubResource( 5 )
@@ -68,6 +84,14 @@ step = 1.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Label" type="Label" parent="hud_Stock"]
+margin_left = 65.0
+margin_top = 17.0
+margin_right = 147.0
+margin_bottom = 55.0
+custom_fonts/font = SubResource( 8 )
+text = "Stock"
 
 [node name="ambianceFeux" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 7 )
@@ -95,5 +119,107 @@ margin_right = 1003.0
 margin_bottom = 583.0
 custom_fonts/font = SubResource( 7 )
 text = "QUIT"
+
+[node name="hudPlayer1" type="Control" parent="."]
+margin_left = 16.0
+margin_top = 164.0
+margin_right = 219.0
+margin_bottom = 359.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LabelOf" type="Label" parent="hudPlayer1"]
+margin_left = 62.0
+margin_top = 45.0
+margin_right = 130.0
+margin_bottom = 73.0
+custom_fonts/font = SubResource( 9 )
+text = "cells of"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LabelPlayer" type="Label" parent="hudPlayer1"]
+margin_left = 58.0
+margin_top = -2.0
+margin_right = 127.0
+margin_bottom = 26.0
+custom_colors/font_color = Color( 0.418605, 0.502964, 1, 1 )
+custom_fonts/font = SubResource( 9 )
+text = "Player 1"
+
+[node name="LabelNbCell" type="Label" parent="hudPlayer1"]
+margin_left = 35.0
+margin_top = 45.0
+margin_right = 63.0
+margin_bottom = 73.0
+custom_fonts/font = SubResource( 9 )
+text = "0"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LabelTotalCels" type="Label" parent="hudPlayer1"]
+margin_left = 130.0
+margin_top = 45.0
+margin_right = 158.0
+margin_bottom = 73.0
+custom_fonts/font = SubResource( 9 )
+text = "0"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="hudPlayer2" type="Control" parent="."]
+margin_left = 802.0
+margin_top = 164.0
+margin_right = 1005.0
+margin_bottom = 359.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LabelOf" type="Label" parent="hudPlayer2"]
+margin_left = 62.0
+margin_top = 45.0
+margin_right = 130.0
+margin_bottom = 73.0
+custom_fonts/font = SubResource( 9 )
+text = "cells of"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LabelPlayer" type="Label" parent="hudPlayer2"]
+margin_left = 58.0
+margin_top = -2.0
+margin_right = 127.0
+margin_bottom = 26.0
+custom_colors/font_color = Color( 0.831373, 0.65098, 0.0901961, 1 )
+custom_fonts/font = SubResource( 9 )
+text = "Player 2"
+
+[node name="LabelNbCell" type="Label" parent="hudPlayer2"]
+margin_left = 35.0
+margin_top = 45.0
+margin_right = 63.0
+margin_bottom = 73.0
+custom_fonts/font = SubResource( 9 )
+text = "0"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LabelTotalCels" type="Label" parent="hudPlayer2"]
+margin_left = 130.0
+margin_top = 45.0
+margin_right = 158.0
+margin_bottom = 73.0
+custom_fonts/font = SubResource( 9 )
+text = "0"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [connection signal="pressed" from="hudQuit/Button" to="." method="_on_ButtonQuit_pressed"]
