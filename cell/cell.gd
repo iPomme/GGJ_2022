@@ -55,7 +55,7 @@ func updateParticule(withExplosion):
 			$ParticlesFire.emitting = false
 			if(level < 0):
 				$ParticlesWater.emitting = true
-				$ParticlesWater.amount = level * 20
+				$ParticlesWater.amount = abs(level) * 20
 		elif(currentside > 0):
 			$ParticlesWater.emitting = false
 			if(level > 0):

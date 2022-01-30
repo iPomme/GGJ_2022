@@ -7,6 +7,8 @@ var yingYang = .5
 
 var posCell = 0
 var negCell = 0
+var hasPosCell = false
+var hasNegCell = false
 
 var notGameOver = true
 
@@ -54,11 +56,15 @@ func emit_playerChanged():
 func updateNbCells():
 	posCell = 0
 	negCell = 0
+	hasPosCell = false
+	hasNegCell = false
 	for c in cells:
 		if(c.level > 0):
 			posCell += 1
+			hasPosCell = true
 		elif(c.level < 0):
 			negCell += 1
+			hasNegCell = true
 
 func updatePlayerHud():
 	updateNbCells()
@@ -98,6 +104,10 @@ func playAnimation():
 func OnCellFilled():
 	availlableStock -= 1
 	updateNbCells()
+	if(currentPlayer < 0):
+		hasNegCell = true
+	else:
+		hasPosCell = true
 	# print_debug("Current Stock: %s" % availlableStock)
 	if availlableStock==0:
 		swithSide()
@@ -113,7 +123,7 @@ func _process(delta):
 			$hudPlayer2.visible = true
 		$ambianceWater.stop()
 		if(!$ambianceFeux.playing):
-			if(posCell > 0):
+			if(hasPosCell):
 				$ambianceFeux.play()
 			else:
 				$ambianceFeux.stop()
@@ -123,7 +133,7 @@ func _process(delta):
 			$hudPlayer2.visible = false
 		$ambianceFeux.stop()
 		if(!$ambianceWater.playing):
-			if(negCell > 0):
+			if(hasNegCell):
 				$ambianceWater.play()
 			else:
 				$ambianceWater.stop()
