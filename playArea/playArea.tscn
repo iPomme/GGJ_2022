@@ -44,7 +44,7 @@ script = ExtResource( 3 )
 margin_left = 2.0
 margin_top = -4.0
 margin_right = 2.0
-margin_bottom = -547.0
+margin_bottom = -563.0
 
 [node name="moving" type="Spatial" parent="."]
 
@@ -123,7 +123,7 @@ text = "QUIT"
 [node name="hudPlayer1" type="Control" parent="."]
 margin_left = 16.0
 margin_top = 164.0
-margin_right = 219.0
+margin_right = 163.0
 margin_bottom = 359.0
 __meta__ = {
 "_edit_use_anchors_": false
@@ -172,10 +172,10 @@ __meta__ = {
 }
 
 [node name="hudPlayer2" type="Control" parent="."]
-margin_left = 802.0
-margin_top = 164.0
-margin_right = 1005.0
-margin_bottom = 359.0
+margin_left = 849.0
+margin_top = 172.0
+margin_right = 993.0
+margin_bottom = 367.0
 __meta__ = {
 "_edit_use_anchors_": false
 }

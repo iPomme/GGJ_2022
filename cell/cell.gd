@@ -74,7 +74,5 @@ func OnPlayerChanged(newSide):
 	currentside = newSide
 	updateParticule(true)
 	if(oldLevel != level):
-		var delta = oldLevel + level
 		oldLevel = level
-		#print_debug("PlayerChanged: current side %s and delta is %s" % [currentside, delta])
 	

@@ -52,6 +52,7 @@ func swithSide():
 	
 func emit_playerChanged():
 	emit_signal("playerChanged", currentPlayer)
+	updatePlayerHud()
 	
 func updateNbCells():
 	posCell = 0
